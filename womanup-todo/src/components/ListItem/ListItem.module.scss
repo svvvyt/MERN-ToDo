@@ -1,0 +1,107 @@
+@import '../../styles/variables.scss';
+
+.listItem {
+  margin: 10px;
+  padding: 10px 20px;
+  border: 3px solid #4e6e5d;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  color: $main-font-color;
+  min-width: 800px;
+
+  &__checkbox {
+    background-color: #fff;
+    position: relative;
+    width: 25px;
+    height: 25px;
+    border: 1px solid #bdc1c6;
+    border-radius: 4px;
+    appearance: none;
+    outline: 0;
+    cursor: pointer;
+    transition: background 175ms ease-in-out;
+
+    &::before {
+      position: absolute;
+      content: '';
+      display: block;
+      top: 2px;
+      left: 7px;
+      width: 8px;
+      height: 14px;
+      border-style: solid;
+      border-color: #fff;
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg);
+      opacity: 0;
+    }
+
+    &:checked {
+      color: #fff;
+      border-color: #06842c;
+      background-color: #06842c;
+
+      &::before {
+        opacity: 1;
+      }
+      ~ label::before {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+      }
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    margin: 5px 20px 5px 15px;
+  }
+
+  &__contentFinished {
+    text-decoration: line-through;
+  }
+
+  &__title {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: $transition;
+    color: $main-font-color;
+
+    &:hover {
+      color: lighten($color: $main-font-color, $amount: 20);
+    }
+
+    &:active {
+      color: lighten($color: $main-font-color, $amount: 40);
+    }
+  }
+  &__description {
+    font-size: 20px;
+    margin-bottom: 20px;
+    white-space: normal;
+  }
+  &__dates {
+    display: flex;
+    flex-direction: column;
+    font-style: italic;
+    color: $secondary-font-color;
+    margin-bottom: 20px;
+  }
+
+  &__completionDate {
+    margin-bottom: 5px;
+  }
+
+  &__timeLeft {
+  }
+
+  &__image {
+    width: 200px;
+  }
+
+  &__actionBtn {
+    margin: 0 5px;
+  }
+}
